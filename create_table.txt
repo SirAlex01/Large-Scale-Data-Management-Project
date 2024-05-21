@@ -1,0 +1,19 @@
+create 'users', 'personal', 'address'
+3. Insert Data
+Insert some example data into the table:
+
+bash
+Copy code
+# Insert a row for user with row key 'user1'
+put 'users', 'user1', 'personal:name', 'Alice'
+put 'users', 'user1', 'personal:email', 'alice@example.com'
+put 'users', 'user1', 'address:street', '123 Maple Street'
+put 'users', 'user1', 'address:city', 'Wonderland'
+put 'users', 'user1', 'address:zip', '12345'
+
+# Insert a row for user with row key 'user2'
+put 'users', 'user2', 'personal:name', 'Bob'
+put 'users', 'user2', 'personal:email', 'bob@example.com'
+put 'users', 'user2', 'address:street', '456 Oak Avenue'
+put 'users', 'user2', 'address:city', 'Fairyland'
+put 'users', 'user2', 'address:zip', '67890'
