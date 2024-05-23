@@ -1,9 +1,5 @@
 create 'users', 'personal', 'address'
-3. Insert Data
-Insert some example data into the table:
 
-bash
-Copy code
 # Insert a row for user with row key 'user1'
 put 'users', 'user1', 'personal:name', 'Alice'
 put 'users', 'user1', 'personal:email', 'alice@example.com'
