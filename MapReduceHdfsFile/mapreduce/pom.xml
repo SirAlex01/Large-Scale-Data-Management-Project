@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.example</groupId>
-  <artifactId>hbaseapi</artifactId>
+  <artifactId>mapreduce</artifactId>
   <version>1.0</version>
 
-  <name>demo</name>
+  <name>mapreduce</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -26,14 +26,49 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-    <groupId>org.apache.hbase</groupId>
-    <artifactId>hbase-client</artifactId>
-    <version>2.5.8</version> <!-- Verifica la versione corrente su cui stai lavorando -->
+        <groupId>org.apache.hbase</groupId>
+        <artifactId>hbase-client</artifactId>
+        <version>2.5.8</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.hbase</groupId>
+        <artifactId>hbase-server</artifactId>
+        <version>2.5.8</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.hbase</groupId>
+        <artifactId>hbase-mapreduce</artifactId>
+        <version>2.5.8</version>
+    </dependency>
+    <dependency>
+       <groupId>org.apache.hadoop</groupId>
+       <artifactId>hadoop-mapreduce-client-core</artifactId>
+        <version>3.3.6</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-common</artifactId>
+        <version>3.3.6</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-hdfs</artifactId>
+        <version>3.3.6</version>
+    </dependency>
+<dependency>
+    <groupId>org.apache.hadoop</groupId>
+    <artifactId>hadoop-auth</artifactId>
+    <version>3.3.6</version>
 </dependency>
-
+    <dependency>
+        <groupId>org.apache.hadoop</groupId>
+        <artifactId>hadoop-mapreduce-client-jobclient</artifactId>
+        <version>3.3.6</version>
+        <scope>provided</scope>
+    </dependency>
   </dependencies>
 
-<build>
+      <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -58,7 +93,7 @@
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.example.HBaseExample</mainClass>
+                                    <mainClass>com.example.HBaseUserCount</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
@@ -67,5 +102,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
