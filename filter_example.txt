@@ -1,0 +1,2 @@
+scan 'users', { FILTER => "RowFilter(=, 'binary:user1')" }
+scan 'users', { FILTER => "SingleColumnValueFilter('personal', 'name', =, 'binary:Alice')" }
