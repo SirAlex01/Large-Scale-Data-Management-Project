@@ -1,0 +1,35 @@
+Remind the tutorial works on linux machines:
+Configure a VLAN if the machines of the cluster are not in the same network (we suggested ZeroTier)
+Configure SSH (public keys in ~/.ssh/authorized_keys and list the hosts in ~/.ssh/known_hosts), refer to the slides.
+Configure /etc/hosts with the IPs of the nodes of the cluster
+
+copy the folders in "configuration folders":
+conf is for hbase folder
+etc is for hadoop folder
+
+add these lines to your ~/.bashrc
+WARN: pay attention to the paths of the hadoop and hbase folders in your machine
+      usually they are both in /home/hadoop folder to facilitate configuration
+
+# FOR HADOOP change pdsh default rcmd
+export PDSH_RCMD_TYPE=ssh
+
+# this line is added so that the environment file which contains $HADOOP_HOME, which is needed for running "hadoop" command anywhere in the system (multi-environment)
+export HADOOP_PARENT_DIR=/home/hadoop
+export HADOOP_HOME=/home/hadoop/hadoop
+export HADOOP_MAPRED_HOME=$HADOOP_HOME 
+export HADOOP_COMMON_HOME=$HADOOP_HOME 
+# this line is used to compile the java code in 64bit compiler instead of default 32bit (this will not affect functionality but will improve performance) this is associated with the WARN.
+export HADOOP_OPTS="$HADOOP_OPTS -Djava.library.path=$HADOOP_HOME/lib/native"
+export HADOOP_HDFS_HOME=$HADOOP_HOME 
+export YARN_HOME=$HADOOP_HOME 
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native 
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin 
+export HADOOP_INSTALL=$HADOOP_HOME
+
+export HBASE_HOME=/home/hadoop/hbase
+export PATH=$PATH:$HBASE_HOME/bin
+
+We used hadoop-3.3.6 and hbase-2.5.8-hadoop3
+WARN: if you use hadoop 3 select the compatible version of hbase during download
+
